@@ -17,8 +17,8 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 # Site Settings
 locale                   : "en-US"
 title                    : "Kwan's Study Room"
-title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
+title_separator          : " "
+subtitle                 : "AI related"
 name                     : "Kwanhyung Lee"
 description              : "am thirsty for knowledge."
 url                      : "https://rhksgud92.github.io"
