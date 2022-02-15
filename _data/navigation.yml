@@ -10,3 +10,17 @@ main:
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
+docs:
+  - title: AI논문리뷰
+    children:
+      - title: "Multi-Modal"
+        url: _posts/multi_modal/
+        category: "multi modal"
+      - title: "Speech-Recognition"
+        url: _posts/stt/
+        category: "stt"
+  - title: 자기소개
+    children:
+      - title: "이관형 그는 누구인가"
+        url: _posts/
+        category: "introduction"
