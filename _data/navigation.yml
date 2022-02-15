@@ -2,25 +2,16 @@
 main:
   - title: "Quick-Start Guide"
     url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
-docs:
   - title: AI논문리뷰
     children:
       - title: "Multi-Modal"
-        url: _posts/multi_modal/
+        url: /_posts/multi_modal/
         category: "multi modal"
       - title: "Speech-Recognition"
-        url: _posts/stt/
+        url: /_posts/stt/
         category: "stt"
   - title: 자기소개
     children:
       - title: "이관형 그는 누구인가"
-        url: _posts/
+        url: /_posts/
         category: "introduction"
