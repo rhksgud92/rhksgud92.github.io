@@ -8,7 +8,7 @@
 
 본논문은 Multi-Modality: Text, Image, Voice 세가지를 이용하여 Sentiment Classification을 수행한 논문입니다.
 
-![image-20220214131050571](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220214131050571.png)
+![image-20220214131050571](image-20220214131050571.png)
 
 위 이미지와 같이 unimodal 데이터만으론 특정 Task를 잘 수행하기 어려운 점들이 있습니다. 본 논문의 Figure 1의 예시처럼 "This movie is fair"이면 보편적으로 Positive한 text이지만 "This movie is sick"의 경우 좋다는건지 안좋다는건지 알기가 애매합니다. 하지만 아래 Bimodal, Trimodal의 예시처럼 Text이외에 Acoustic data, Visual data등이 추가되어 Inter-modality의 정보가 더해져 "This movie is sick"이란 문장이 Positive한 sentiment란걸 의미했다는걸 알수있게 됩니다.
 
