@@ -14,7 +14,7 @@ CNN의 경우 translation invariance와 locality등의 강한 강점으로 인�
 
 ### <u>2. Methods</u>
 
-<img src="./../_images/image-20220214171007473.png" alt="">
+<img src="/_images/image-20220214171007473.png" alt="image-20220214171007473">
 #![image-20220214171007473](./../_images/image-20220214171007473.png)
 
 전체적 모델 및 학습 방식은 위에 figure 1과 같습니다. 이제 하나하나 찬찬히 살펴보겠습니다.
