@@ -24,14 +24,14 @@
 
 1. **Intra-Modality Parts** 에선 각 Spoken Language (Text), Voice (sound), Video frame (Image)를 개별적으로 rich한 representation feature vector를 얻고자 모델이 설계됩니다.
    1. **Spoken Language:** 아래 Figure3과 같이 Word2Vec과 한께 예전에 많이 쓰였던 GloVe가 사용되었고, Temporal한 Video의 Text의 특성을 고려하여 LSTM-layer가 following되고 후에 LSTM의 모든 output 값들이 concatenation되어 Fully-Connected layers에 input으로 사용되어 나온 output 값이 text embedding feature값으로 사용되었습니다.
-      1. ![image-20220214152245455](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220214152245455.png)
+      1. ![image-20220214152245455](image-20220214152245455.png)
    2. **Video Images**: FACET facial expression analysis framework을 사용하여 9개의 image-based 정보값과, 20개의 muscle movement based facial action units 값 그리고 OpenFace를 사용하여 68개의 facial landmark locations등이 feature로 extracted되어 user가 정해준 길이의 frames를 시간축으로 mean-pooling한 후 그 값들이 input으로 three hidden layers of 32 ReLU를 지나서 나온 embedding값이 본 논문에 사용됩니다.
    3. **Acoustic Voice**: 12 MFCCs, pitch tracking and Voiced/UnVoiced segmenting features, glottal source parameters, peak slope parameters, 등 다양한 acoustic signal processing을 통한 features를  extracting하여 user가 정해준 길이의 frames를 시간축으로 mean-pooling하여 위 Video Image와 똑같이 그 mean-pooling된 값들이 input으로 three hidden layers of 32 ReLU를 지나서 나온 embedding값이 본 논문에 사용됩니다.
 2. ***<u>Tensor Fusion Layer</u>*** 자 이제 본 논문에서 제일 중요한 Tensor Fusion Layer부분입니다.
    1. 위 "Spoken Language Embedding Vector", "Video Images Embedding Vector", "Acoustic Voice Embedding Vector"를 본 논문에선 아래와같이 표시를 합니다.
-      1. ![image-20220214161716346](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220214161716346.png)
+      1. ![image-20220214161716346](image-20220214161716346.png)
    2. 그리고 다음과 같이 Unimodal, Bimodal, Trimodal로 계산하여 features를 구한다. 여기서 X는 외적 (Outer-product)를 의미합니다.
-      1. ![image-20220214161909810](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220214161909810.png)
+      1. ![image-20220214161909810](image-20220214161909810.png)
    3. Unimodal은 각 modal별로 구해진 Intra-modality가 잘 discriminative하게 구현된 feature 값
    4. Bimodal은 두개의 Modal 별로 외적을 통해 얻은 값 (위 figure 4에서 있는 하늘색 부분). 두 데이터들간의 관계도 정보가 포함이 되게 됩니다.
    5. Trimodal은 세개의 Modal 전부를 외적하여 얻은 값 (위 figure 4에서 있는 보라색 부분). 세가지 종류의 데이터들간의 관계도 정보가 포함이 됩니다.
@@ -41,9 +41,9 @@
 ### <u>4. Results</u>
 
 1. 2011년부터 2016년까지 나왔던 multi-modal sentiment 모델들과 비교 했을때 다음과 같은 성능을 냈는데요. 아래 세가지 tasks들은 1) Binary Class, 2) Five Class sentiment, 3) Sentiment Regression in range [-3, 3]으로 분류하는 tasks입니다.
-   1. ![image-20220214164118493](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220214164118493.png)
+   1. ![image-20220214164118493](image-20220214164118493.png)
 2. Unimodal, Bimodal, Trimodal 별로 조합하였을땐 아래와 같은 성능을 얻었습니다. 여기서 모든 Uni, Bi, Trimodal들이 사용되었을때 가장 좋은 성능을 낸걸 볼수 있습니다.
-   1. ![image-20220214164403593](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220214164403593.png)
+   1. ![image-20220214164403593](image-20220214164403593.png)
 
 ### <u>5. 생각</u>
 
