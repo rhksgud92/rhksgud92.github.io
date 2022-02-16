@@ -2,6 +2,10 @@
 layout: post
 title:  "Tensor Fusion Network for Multimodal Sentiment Analysis - 리뷰"
 
+categories:
+  - Multimodal
+  - Self-supervised
+
 tags:
   - Multimodal
   - Self-supervised
