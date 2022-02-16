@@ -1,8 +1,6 @@
-# "Tensor Fusion Network for Multimodal Sentiment Analysis" - 리뷰
-
 ---
+layout: post
 title:  "Tensor Fusion Network for Multimodal Sentiment Analysis - 리뷰"
-excerpt: "논문리뷰"
 
 tags:
   - Multimodal
@@ -10,6 +8,8 @@ tags:
   - Transformer
 
 ---
+
+# 독학 AI연구원의 논문리뷰 - 1
 
 멀티모달 Fusion쪽 공부중에 2017년 EMNLP에 억셉트된 Tensor Fusion Network for Multimodal Sentiment Analysis를 오늘 살펴보도록 하겠습니다. 많이 부족한 리뷰지만, 의료AI부분에 멀티모달을 적용하려면 또 Fusion쪽을 관심있게 보던 중에읽어볼만한 논문이라고 생각해서 읽고 이해하는 바를 쓰게 되었습니다.
 
