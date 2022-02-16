@@ -5,4 +5,4 @@ title:  "안녕하세요. 이관형입니다."
 
 # 자기소개
 
-후 할께 너무 많습니다..
+Texas A&M University
