@@ -1,3 +1,17 @@
+---
+layout: post
+title:  "Are Multimodal Transformers Robust to Missing Modality? - 리뷰"
+
+categories:
+  - Multimodal
+  - Fusion
+
+tags:
+  - Multimodal
+  - Transformer
+  
+---
+
 # "Are Multimodal Transformers Robust to Missing Modality?" - 리뷰
 Without Convolution or Region Supervision" - 리뷰
 
