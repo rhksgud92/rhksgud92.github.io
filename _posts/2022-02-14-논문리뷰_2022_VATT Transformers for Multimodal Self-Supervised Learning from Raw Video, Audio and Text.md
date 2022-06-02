@@ -13,7 +13,7 @@ tags:
 
 ---
 
-# 독학 연구원의 논문리뷰 - 2
+# 2022_02_14
 
 멀티모달 Fusion쪽 공부중에 2021년 NeurIPS에 억셉트된 VATT: Transformers for Multimodal Self-Supervised Learning from Raw Video, Audio and Text를 오늘 살펴보도록 하겠습니다. 많이 부족한 리뷰지만, 멀티모달 Fusion쪽을 관심있게 보던 중에 또 Pretraining for Multi-modal model쪽을 공부하던 중에 읽어볼만한 논문이라고 생각해서 읽게 되었습니다.
 
