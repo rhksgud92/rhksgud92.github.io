@@ -1,3 +1,19 @@
+---
+layout: post
+title:  "Bayesian Structure Learning from Probabilistic Graphical Model - 리뷰"
+
+categories:
+  - Bayesian
+  - Structure Learning
+  - Probabilistic Graphical Model
+
+tags:
+  - Probabilistic Graphical Model
+  - Bayesian Structure Learning
+
+---
+
+# 독학 연구원의 공부 - 1
 Bayesian Structure Learning에는 여러가지 방법들이 오랬동안 제시되어 왔다.
 
 하지만 그전에 먼저 기초적으로 알아야할 Bayesian Networks의 기본 이론들을 공부해보겠다.
