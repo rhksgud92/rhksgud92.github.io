@@ -13,11 +13,8 @@ tags:
 
 ---
 # 2022_05_27
+
 "ViLT: Vision-and-Language Transformer Without Convolution or Region Supervision" - 리뷰
-
-
-
-Without Convolution or Region Supervision" - 리뷰
 
 멀티모달 공부중에 2021년 ICML에 억셉트된 ViLT: Vision-and-Language Transformer Without Convolution or Region Supervision를 오늘 살펴보도록 하겠습니다. 많이 부족한 리뷰지만, 멀티모달쪽을 관심있게 보던 중에 또 Pretraining for Multi-modal model쪽을 공부하던 중에 읽어볼만한 논문이라고 생각해서 읽게 되었습니다.
 
