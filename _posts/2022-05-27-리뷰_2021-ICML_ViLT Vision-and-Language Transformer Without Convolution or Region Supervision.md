@@ -1,4 +1,19 @@
-# "ViLT: Vision-and-Language Transformer Without Convolution or Region Supervision" - 리뷰
+---
+layout: post
+title:  "ViLT: Vision-and-Language Transformer Without Convolution or Region Supervision - 리뷰"
+
+categories:
+  - Multimodal
+  - Transformer
+
+tags:
+  - Multimodal
+  - ViT
+  - Transformer
+
+---
+# 2022_05_27
+"ViLT: Vision-and-Language Transformer Without Convolution or Region Supervision" - 리뷰
 
 
 
