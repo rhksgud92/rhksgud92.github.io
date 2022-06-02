@@ -15,7 +15,8 @@ tags:
 
 ---
 
-# Bayesian Structure Learning with Generative Flow Networks - 리뷰
+# 2022_05_02
+Bayesian Structure Learning with Generative Flow Networks - 리뷰
 
 원래 Bayesian Structure Learning은 Probabilistic Graphical Modeling 쪽 베이시안 학문쪽에서 constraint-based 나 score-based로 전통적이게 통계적으로 쓰이던 방식입니다. 머신러닝쪽에서는 최근 머신러닝을 이용하여 MCMC, Variational Inference쪽방삭을 사용하여 좀더 유연하게 사용성있는 bayesian structure learning을 제시하는 트렌드입니다. 본 논문에서는 제시한 GFlowNet을 기반으로 만든 small한 DAG-GFlowNet을 제시합니다.
 
