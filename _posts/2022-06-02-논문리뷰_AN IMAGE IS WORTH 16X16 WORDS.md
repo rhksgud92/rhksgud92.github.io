@@ -1,3 +1,20 @@
+---
+layout: post
+title:  "AN IMAGE IS WORTH 16X16 WORDS TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE - 리뷰"
+
+categories:
+  - Transformer
+  - Image Recognition
+
+tags:
+  - Transformer
+  - Image
+  - Recognition
+
+---
+
+# 2022_06_03
+
 # AN IMAGE IS WORTH 16X16 WORDS TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE - 리뷰
 
 최근 몇년동안 NLP 쪽에서는 Transformer 모델이 크게 좋은 성능들을 내며 각광받게 되었습니다. 이를 기반으로 BERT, GPT등 유명한 Large-scale 자연어처리 모델들이 나왔고, 음성인식에서도 Wav2Vec2.0, 그리고 이미지 쪽에서도 DETR, Segformer등 다양한 모델들이 나왔습니다. 하지만 Wav2Vec2.0등의 모델들은 Transformer encoder를 쓰지만 여전히 CNN을 첫 레이어로 사용하여 특징을 추출하는 무거운 형태의 모델들이였습니다. ViT는 CNN을 쓰지 않고도 오로지 patch projection만을 사용하여 빠르고 CNN에 못지 않은 정확도를 갖춘 영상인식 모델입니다.
@@ -14,9 +31,9 @@ ViT 모델은 기본 Transformer 모델을 최대한 적게 modification하여 ,
 $$
 N=HW/P^2
 $$
- 과 같습니다. Transformer의 D-dimension을 맞추기 위해서 그 후, 이 패치들을 D-dimension으로 flatten 합니다. 이러면 아래의 식 1번과 같게 됩니다. BERT 모델과 똑같이 [CLS] token을 만들어 후에 classification등을 할때 사용합니다. 이 CLS토큰은 learnable parameter로, nn.parameter등으로 만들면 됩니다. 논문에선 positional embedding vector도 learnable한 1D position embedding을 사용하여 patch embedding에 더하여 transformer에 들어가게 합니다. 2D-aware positional embedding이란걸 사용했지만 성능의 효과는 못봤다고 합니다.![image-20220603162730430](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220603162730430.png)
+ 과 같습니다. Transformer의 D-dimension을 맞추기 위해서 그 후, 이 패치들을 D-dimension으로 flatten 합니다. 이러면 아래의 식 1번과 같게 됩니다. BERT 모델과 똑같이 [CLS] token을 만들어 후에 classification등을 할때 사용합니다. 이 CLS토큰은 learnable parameter로, nn.parameter등으로 만들면 됩니다. 논문에선 positional embedding vector도 learnable한 1D position embedding을 사용하여 patch embedding에 더하여 transformer에 들어가게 합니다. 2D-aware positional embedding이란걸 사용했지만 성능의 효과는 못봤다고 합니다.<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220603162730430.png" alt="">
 
-![image-20220603155915726](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220603155915726.png)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220603155915726.png" alt="">
 
 본 논문은 영상인식에서 Transformer만을 사용하는데 중점을 두긴 했으나 CNN과 hybrid로 학습하는것도 염두에 두고 있습니다. CNN과 같이 쓸 경우, CNN의 feature map에 patch projection을 하여 진행합니다.
 
@@ -38,4 +55,4 @@ Metrics는  few-shot이나 fine-tuning accuracy를 사용하여 report 했습니
 
 ### 4. Results
 
-![image-20220603171414998](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220603171414998.png)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220603171414998.png" alt="">
