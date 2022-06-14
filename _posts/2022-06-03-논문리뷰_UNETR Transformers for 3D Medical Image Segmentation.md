@@ -1,3 +1,22 @@
+---
+layout: post
+title:  "UNETR: Transformers for 3D Medical Image Segmentation - 리뷰"
+
+categories:
+  - Image Segmentation
+  - Semantic Segmentation
+  - Transformer
+
+tags:
+  - Multimodal
+  - Image Segmentation
+  - Semantic Segmentation
+  - Transformer
+
+---
+
+# 2022_06_09
+
 # UNETR: Transformers for 3D Medical Image Segmentation - 리뷰
 
 최근 몇년동안 NLP 쪽에서는 Transformer 모델이 크게 좋은 성능들을 내며 각광받게 되었습니다. 이를 기반으로 BERT, GPT등 유명한 Large-scale 자연어처리 모델들이 나왔고, 음성인식에서도 Wav2Vec2.0, 그리고 이미지 쪽에서도 DETR, Segformer, ViT등 다양한 모델들이 나왔습니다. 이번엔 흔히들 사용하는 FCNN대신 Transformer를 사용하여 3D Medical image segmentation을 한 UNETR 논문을 보겠습니다.
@@ -39,12 +58,11 @@ $$
 3D데이터를 P^3 형태의 patches로 나눠서 sequencetial 하게 만들어서 Transformer encoder block들의 형태 까지는 Attention is All you need와 별 다른점이 없습니다. 하지만 U-Net의 architecture를 활용하기 위하여 아래 사진과 같이 3, 6, 9, 12번째의 encoder output을 빼서 아래와 같이 deconvolution을 써서 값을 얻은 후 U-Net과 비슷하게 skip-connnection 으로 정보값을 더해줍니다.
 
 
-
-![image-20220604182037877](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220604182037877.png)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220604182037877.png" alt="">
 
 Loss function 은 다음과 같이 soft dice loss 와 cross-entropy loss를 합하여 voxel-wise하게도 loss를 구할수 있게 한다. 여기서 J는 class 개수이고, I는 voxel (3d) 개수, Y_i,j는 output probability, G_i,j는 one-hot encoded ground truth for class j at voxel i이다.
 
-<img src="C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220607170549998.png" alt="image-20220607170549998" style="zoom:50%;" />
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220607170549998.png" alt="image-20220607170549998" style="zoom:50%;" />
 
 데이터셋은 CT 데이터인 BTCV와 MRI/CT 데이터인 MSD를 사용했습니다.
 
@@ -52,14 +70,15 @@ Loss function 은 다음과 같이 soft dice loss 와 cross-entropy loss를 합�
 
 ### 4. Results
 
-![image-20220607170709705](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220607170709705.png)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220607170709705.png" alt="">
 
 성능 결과 비교는 Dice score와 HD metrics을 아래와 같이 사용하였습니다.
 
-<img src="C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220607170803690.png" alt="image-20220607170803690" style="zoom:50%;" />
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220607170803690.png" alt="image-20220607170803690" style="zoom:50%;" />
 
 아래는 다른 모델들과 비교한 segmentation 결과 입니다. 아래 결과만 보자면 UNETR이 다른 모델들에 비하여 좀더 세밀하게 그리고 더 디테일하게 segmentation해주는걸 볼 수 있습니다.
 
-![image-20220607170832864](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220607170832864.png)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220607170832864.png" alt="">
 
-![image-20220607170848848](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220607170848848.png)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220607170848848.png" alt="">
+
