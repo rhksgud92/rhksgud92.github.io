@@ -1,3 +1,21 @@
+---
+layout: post
+title:  "Representation Learning with Contrastive Predictive Coding - 리뷰"
+
+categories:
+  - Self-Supervised Learning
+  - Unsupervised Learning
+  - Mutual Information
+
+tags:
+  - Self-Supervised Learning
+  - Unsupervised Learning
+  - Mutual Information
+
+---
+
+# 2022_09_23
+
 # Representation Learning with Contrastive Predictive Coding - 리뷰
 
 최근 각 modality (image, audio, vision, medical-data) 별로 Self-supervised learning 방식으로 미리 label 없이 많은 데이터로 학습을 pre-trained model을 만들어서 후에 fine-tuning, linear learning 등으로 downstream task에서 높은 성능을 내는 다양한 모델들이 계속하여 나왔습니다. 오늘은 후에 Wav2vec2.0 이나 CPC2의 기반이 된 현재와 과거의 값의 context vector와 미래값의 encoder output 사이에 mutual information을 높여줘서 각 encoder 및 auto-regressive part를 학습하는 2019년에 뉴립스에서 나온 논문 "Representation Learning with Contrastive Predictive Coding" 논문을 리뷰해보겠습니다.
@@ -18,11 +36,11 @@
 
 본 논문에서 미래값의 latent representation을 현재와 과거값만을 가지고 학습을 하는데, 아래 식처럼 여기서 현재까지의 값을 벡터화한 context c vector가 있고 미래값의 encoder output인 x가 있습니다. 여기서 이 두 벡터들간의 mutual information을 maximally preserve하기 위한 학습 즉 두 벡터들간의 mutual information 을 높히는 학습을 self-supervised learning 방식으로 진행합니다. 
 
-![image-20220923155119396](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220923155119396.png)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220923155119396.png" alt="">
 
 ### 2. Methods
 
-![image-20220923154023717](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220923154023717.png)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220923154023717.png" alt="">
 
 ***ENCODER and Autoregessive Parts***
 
@@ -31,11 +49,11 @@
 
 본 논문에선 c_t를 가지고 직접적으로 x_t를 예측하는게 아닌 density ratio를 사용하여, 아래 식과 같은 두 변수사이의 의존도 mutual information을 높히는 방식으로 학습을 합니다.
 
-![image-20220923160058282](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220923160058282.png)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220923160058282.png" alt="">
 
 실제 코드에선 아래와 같이 log-bilinear model을 사용합니다.
 
-![image-20220923160145072](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220923160145072.png)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220923160145072.png" alt="">
 
 위의 W_k 는 fully-connected layer의 weight인데 이 weight는 각 time-step별로 만듭니다. 후에 나오지만, 2~20개의 time-steps를 예측하게 실험을 했고, 본 논문에서 사용한 데이터셋에선 12개의 times-steps 예측이 성능이 제일 좋았다고 합니다. 
 
@@ -45,15 +63,15 @@ Negative samples는 그냥 다른 randomly sampled values를 기준으로 진행
 
 본 논문에선 NCE를 기반으로 한 loss를 사용합니다. 아래 식과 같이 Positive sample 은 한개 그리고 아주 여러개의 negative samples가 있는데 여기서 softmax 를 사용하여 positive 한개를 찾는 방식입니다. 
 
-![image-20220923162044361](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220923162044361.png)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220923162044361.png" alt="">
 
 여기서 f_k는 positive sample의 density ratio입니다. 
 
-![image-20220923162250552](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220923162250552.png)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220923162250552.png" alt="">
 
 위의 식에서 d = i는 x_i가 positive 인지 아닌지를 나타냅니다. 여기서 결국 위 L_N과 p(d=i | X, c_t)가 위의 식 f_x와 density ratio 식처럼 proportional하다는걸 보여줍니다. 
 
-![image-20220923162539078](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220923162539078.png)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220923162539078.png" alt="">
 
 마지막으로 위의 식처럼 c_t와 x_t를 사용하여 mutual information을 evaluate할 수 있습니다. N이 커지면 커질 수록 (batch size가 커지면 커질 수록 혹은 negative samples개수가 커지면 커질수록) tight 해지는걸 알 수 있습니다. 즉 큰 negative samples를 수행할수 있는 gpus가 있을수록 성능이 좋다는 얘기죠. 또한 당연히 학습되어지는 L_N도 줄으면 줄을수록 mutual information이 커지는것도 알 수 있습니다.
 
@@ -65,11 +83,11 @@ Negative samples는 그냥 다른 randomly sampled values를 기준으로 진행
 
 https://github.com/jefflai108/Contrastive-Predictive-Coding-PyTorch
 
-![image-20220923162911100](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220923162911100.png)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220923162911100.png" alt="">
 
 먼저 위의 self.encoder는 g_enc입니다. 오디오 데이터 기반이라 1D-CNN을 사용한걸 볼 수 있습니다. 그리고 self.gru는 g_ar (autoregressive) 파트입니다. 마지막으로 self.Wk는 fully-connected layer인데 predict하고 싶은 time-step 개수만큼 만듭니다.
 
-![image-20220923163605081](C:\Users\kwanl\AppData\Roaming\Typora\typora-user-images\image-20220923163605081.png)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/image-20220923163605081.png" alt="">
 
 먼저 전체 데이터를 encoder로 넣어서 z latent representaion vector를 뽑아냅니다. 그리고 랜덤하게 t_samples (predict-time-point)를 뽑습니다. 그리고 과거부터 t_sample까지의 z를 g_ar에 넣고 g_ar의 output 중 last vector of gru output 을 C_t context vector로 사용합니다. 여기서 C_t를 각각의 모든 W_k에 넣어서 WK x C_t값들을 준비합니다. 여기서 단순히 matrix multiplication을 통하여 matrix를 뽑고 soft-max로 probability를 구합니다. 학습이 잘되었다면 같은 positive sample 들이 있는 diagonal에는 높은 숫자가 다른 배치에 있어서 negative인 값들과는 낮은숫자가 있어야겠죠. 
 
