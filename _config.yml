@@ -112,7 +112,7 @@ author:
       url: "https://scholar.google.com/citations?user=mV4X9MoAAAAJ&hl=ko"
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "kwanlee9209@gmail.com"
+      # url: "kwanlee9209@gmail.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       # url: "https://twitter.com/"
