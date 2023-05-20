@@ -103,13 +103,13 @@ analytics:
 author:
   name             : "Welcome!"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Hello..."
+  bio              : #"Hello..."
   location         : "South Korea"
   email            :
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
+    - label: "Papers"
+      icon: "fa-solid fa-pen-to-square"
+      url: "https://scholar.google.com/citations?user=mV4X9MoAAAAJ&hl=ko"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
@@ -121,7 +121,7 @@ author:
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+      url: "https://github.com/rhksgud92"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
