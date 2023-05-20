@@ -15,5 +15,5 @@ title:  "안녕하세요. 이관형입니다."
 1. SpaceX student researcher in Acoustic Signal Processing Lab in Texas A&M Univ. - 2014~2015
   - Active Noise Control for SpaceX rocket engine facility in Houston
 2. Acoustic Signal Processing Lab as RA in Texas A&M Univ. - 2016~2017
-  - 
+  
 
